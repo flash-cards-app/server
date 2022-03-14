@@ -30,7 +30,6 @@ app.get("/",auth, (req,res)=>{
 
 app.get("/find", async (req,res)=>{
     const users = await User.find()
-    console.log(users)
 })
 
 

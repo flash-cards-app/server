@@ -6,7 +6,7 @@ let users_post_login = require('../controlers/users.js').users_post_login
 let users_post_code = require('../controlers/users.js').users_post_code
 let users_post_checkIsAdmin = require('../controlers/users.js').users_post_checkIsAdmin
 let users_post_adminPanel = require('../controlers/users.js').users_post_adminPanel
-let { dataBase_post_deleteAll } = require('../controlers/dataBase.js')
+// let { dataBase_post_deleteAll } = require('../controlers/dataBase.js')
 let auth = require('../utils/auth.js').auth
 
 const router = express.Router()
@@ -25,6 +25,6 @@ router.post('/checkIsadmin', users_post_checkIsAdmin)
 
 router.post('/adminPanel', users_post_adminPanel)
 
-router.post('/deleteDataBase', dataBase_post_deleteAll)
+// router.post('/deleteDataBase', dataBase_post_deleteAll)
 
 module.exports = {router}

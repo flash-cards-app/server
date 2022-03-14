@@ -18,7 +18,6 @@ function generateRegisterCode(){
 
         code += sign
     }
-    console.log(code)
 
     return code
 }

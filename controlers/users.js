@@ -2,14 +2,12 @@ let User = require('../models/User.js').User
 let generateRegisterCode = require('../utils/generateRegisterCode.js').generateRegisterCode
 let Mailer = require('../utils/Mailer.js').Mailer
 let usersRegisterCodes = require('../usersRegisterCodes.js').usersRegisterCodes
-let emailLogin = require('../secret/gmail_data.js').emailLogin
-let emailPassword = require('../secret/gmail_data.js').emailPassword
 
 const mailer = new Mailer(
     "smtp.gmail.com",
     587,
-    emailLogin,
-    emailPassword,
+    process.env.EMAIL_LOGIN,
+    process.env.EMAIL_PASSWORD,
 )
 
 const users_get_all = async (req, res) => {

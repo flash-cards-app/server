@@ -19,7 +19,6 @@ class Mailer {
     }
 
     async sendEmail(from, to, subject, text = "", html = "") {
-        console.log(text)
         let info
 
         if (text == "") {
