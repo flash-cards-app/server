@@ -11,6 +11,7 @@ class Mailer {
             host: this.host,
             port: this.port,
             secure: false,
+            service: 'gmail',
             auth: {
                 user: this.user,
                 pass: this.pass

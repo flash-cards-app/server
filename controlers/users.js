@@ -2,6 +2,8 @@ let User = require('../models/User.js').User
 let generateRegisterCode = require('../utils/generateRegisterCode.js').generateRegisterCode
 let Mailer = require('../utils/Mailer.js').Mailer
 let usersRegisterCodes = require('../usersRegisterCodes.js').usersRegisterCodes
+const dotenv = require('dotenv');
+dotenv.config();
 
 const mailer = new Mailer(
     "smtp.gmail.com",
