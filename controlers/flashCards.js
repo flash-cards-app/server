@@ -1,10 +1,11 @@
 let FlashCards = require ('../models/FlashCards.js').model
+const LanguageTypeSchema = require ('../models/LanguageType').model
+const DifficultTypeSchema = require('../models/DifficultType').model
 
 
 const flashCards_post_createOne = (req,res) =>{
     try {
         const {language,type,question,answear} = req.body
-        console.log(language,type,question,answear)
         const flashCard = new FlashCards({
             language,
             type,
@@ -16,6 +17,44 @@ const flashCards_post_createOne = (req,res) =>{
         .then(flashCard => {
             res.statusCode = 200
             res.json({ succes: true, message: "Utworzono fiszkę", flashCard })
+        })
+    } catch (error) {
+        console.error(error)
+        res.statusCode = 500
+        res.json({ error: error.toString() })
+    }
+}
+
+const flashCards_post_languageType = (req,res) =>{
+    try {
+        const {languageType} = req.body
+        const newLanguageType = new LanguageTypeSchema({
+            languageType,
+        })
+        newLanguageType
+        .save()
+        .then( () => {
+            res.statusCode = 200
+            res.json({ succes: true, message: "Created new langugeType" })
+        })
+    } catch (error) {
+        console.error(error)
+        res.statusCode = 500
+        res.json({ error: error.toString() })
+    }
+}
+
+const flashCards_post_difficultType = (req,res) =>{
+    try {
+        const {difficultType} = req.body
+        const newDifficultType = new DifficultTypeSchema({
+            difficultType,
+        })
+        newDifficultType
+        .save()
+        .then( () => {
+            res.statusCode = 200
+            res.json({ succes: true, message: "Created new difficultType" })
         })
     } catch (error) {
         console.error(error)
@@ -36,4 +75,4 @@ const flashCards_get_byType = async (req,res) => {
     }
 }
 
-module.exports = {flashCards_get_byType,flashCards_post_createOne}
+module.exports = {flashCards_get_byType,flashCards_post_createOne,flashCards_post_languageType,flashCards_post_difficultType}
