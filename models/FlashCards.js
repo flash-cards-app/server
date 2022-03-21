@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const FlashCardsSchema = new Schema({
     language:{
-        type: String,
+        type: Schema.Types.ObjectId, ref:"LanguageType", required: true
+    },
+    difficult:{
+        type: Schema.Types.ObjectId, ref:"DifficultType", required: true
     },
     type:{
         type: String,

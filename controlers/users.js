@@ -116,7 +116,7 @@ const users_post_register = async (req, res) => {
                         code = generateRegisterCode()
                     }
 
-                    const emailSender = "testtest8395@gmail.com"
+                    const emailSender = "flashCards@gmail.com"
                     const emailRecipient = email
                     const emailTopic = "Kod aktywacyjny"
                     const emailMessage = "Kod aktywacyjny: " + code
