@@ -7,7 +7,7 @@ const LangugeTypeSchema = new Schema({
     },
 })
 
-const model = mongoose.model("DifficultType", LangugeTypeSchema)
+const model = mongoose.model("LanguageType", LangugeTypeSchema)
 
 
 module.exports = {model}
