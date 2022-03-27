@@ -3,6 +3,7 @@ let express = require ('express')
 let  {
     quiz_post_create,
     quiz_get_byType,
+    quiz_get_all,
     quiz_patch_update,
     quiz_delete_Quiz,
     quiz_post_Question,
@@ -15,6 +16,8 @@ const router = express.Router()
 router.post('/create',quiz_post_create)
 
 router.get('/getByType',quiz_get_byType)
+
+router.get('all',quiz_get_all)
 
 router.patch('/quiz', quiz_patch_update)
 

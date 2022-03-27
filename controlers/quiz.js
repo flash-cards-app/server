@@ -13,6 +13,17 @@ const quiz_get_byType = async (req, res) => {
     }
 }
 
+const quiz_get_all = async (req, res) => {
+    try {
+        const quiz = await QuizSchema.find()
+        res.json({ quiz })
+    }
+    catch (error) {
+        res.statusCode = 500
+        res.json({ error: error.toString() })
+    }
+}
+
 const quiz_post_create = async () => {
     const { name, questions, time } = req.body
     try {
@@ -81,7 +92,9 @@ const quiz_delete_Question = async (req, res) => {
     }
 }
 
-module.exports = { quiz_get_byType,
+module.exports = { 
+    quiz_get_byType,
+    quiz_get_all,
     quiz_post_create,
     quiz_patch_update,
     quiz_delete_Quiz,
