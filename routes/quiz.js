@@ -13,15 +13,15 @@ let  {
 
 const router = express.Router()
 
-router.post('/create',quiz_post_create)
+router.post('/',quiz_post_create)
 
 router.get('/getByType',quiz_get_byType)
 
-router.get('all',quiz_get_all)
+router.get('/all',quiz_get_all)
 
-router.patch('/quiz', quiz_patch_update)
+router.patch('/', quiz_patch_update)
 
-router.delete('/delete', quiz_delete_Quiz)
+router.delete('/', quiz_delete_Quiz)
 
 router.post('/question',quiz_post_Question)
 
