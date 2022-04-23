@@ -3,8 +3,8 @@ const cors = require('cors')
 let usersRouter = require('./routes/users.js').router
 let flashCardsRouter = require('./routes/flashCards.js').router
 let quizRouter = require('./routes/quiz.js').router
+let typesRouter = require('./routes/types.js').router
 let connectionDB = require('./db/connection.js').connectDB
-let User = require('./models/User.js').User
 
 const port = process.env.PORT || 3001
 const app = express()
@@ -20,23 +20,20 @@ app.use((req,res,next)=>{
     next(); 
 })
 app.use(express.json())
-const auth = (req,res, next) =>{
-    next()
-}
 
-app.get("/",auth, (req,res)=>{
+app.get("/", (req,res)=>{
     res.send(`<h1>Strona główna - ${req.username}</h1>`)
 })
 
-app.get("/find", async (req,res)=>{
-    const users = await User.find()
-})
 
 
 app.use("/users", usersRouter)
 
 app.use('/flashCards', flashCardsRouter)
+
 app.use('/quiz', quizRouter)
+
+app.use('/types', typesRouter)
 
 
 app.use((req,res)=>{
